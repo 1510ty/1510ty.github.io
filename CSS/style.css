@@ -50,7 +50,7 @@ a:link {
     color: blue;
 }
 .responsive-image {
-    width: 85%;   /* 親要素の幅の85%で表示 */
+    width: 100%;   /* 親要素の幅の85%で表示 */
     height: auto; /* 幅に合わせて高さを自動調整 */
     display: block;
 }
