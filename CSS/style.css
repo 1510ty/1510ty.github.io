@@ -473,6 +473,6 @@ header .container {
 }
 
 /* greeting-messageのスタイルは既存のままでOK */
-.greeting-message {
-    /* JavaScriptで内容が挿入されるため、特別なスタイルは不要 */
-}
+/*.greeting-message { */
+/*    /* JavaScriptで内容が挿入されるため、特別なスタイルは不要 */
+/* } */
