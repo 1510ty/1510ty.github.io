@@ -1,13 +1,14 @@
 /* ==================== */
 /* 1. 全体設定と基本リセット */
 /* ==================== */
-html, body {
-    height: 100%; /* FlexboxのSticky Footerのために必要 */
-    margin: 0;
-    padding: 0;
+html {
+    height: 100%; /* bodyがflexアイテムになるためhtmlも高さを指定 */
 }
 
 body {
+    height: 100%; /* ビューポートの高さいっぱいに広げる */
+    display: flex;             /* Flexboxを有効にする */
+    flex-direction: column;    /* 要素を縦方向に並べる (header, main, footer) */
     font-family: "Noto Sans JP", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -16,6 +17,8 @@ body {
     font-size: 16px; /* モバイルでの読みやすさを考慮したベースサイズ */
     color: var(--text-color); /* 定義したテキストカラーを適用 */
     background-color: #fff; /* 白い背景 */
+    margin: 0;
+    padding: 0;
 }
 
 /* ==================== */
@@ -34,28 +37,32 @@ body {
 /* ==================== */
 /* 3. レイアウトとコンテナ */
 /* ==================== */
-.site-container {
-    display: flex;             /* Flexboxを有効にする */
-    flex-direction: column;    /* 要素を縦方向に並べる */
-    min-height: 100vh;         /* ビューポートの高さ（vh）を基準に最低高さを100%に設定 */
-}
+/* site-container は削除し、bodyにFlexboxの役割を統合 */
 
 .container {
     max-width: 960px; /* サイト全体の最大幅 (PCでの見やすさのため) */
     margin: 0 auto;   /* 中央寄せ */
     padding: 20px;    /* 左右と上下に余白を設ける */
     box-sizing: border-box; /* paddingを含めて幅と高さを計算 */
+    width: 100%; /* containerが親要素の幅を占めるように（必要に応じて） */
 }
 
-/* ヘッダー、メイン、フッター自体の上下のパディング */
-/* 各セクションの上下の余白は.containerのpaddingで調整されるか、
-   各要素内で個別に設定する方が柔軟なため、ここからは削除されています。
-   もし、ヘッダー全体やフッター全体の背景色などにパディングを適用したい場合は、
-   header { padding: 20px 0; } のようにここに記述してください。 */
+/* header, main, footer 自体のスタイル */
+/* これらはbodyのflexアイテムとして振る舞う */
+header {
+    width: 100%; /* 親 (body) の幅いっぱいを使う */
+    /* background-color: #f0f0f0;  ヘッダー全体の背景色が必要ならここに */
+}
 
 main {
     flex-grow: 1; /* 残りのスペースを全て占有し、フッターを下に押し出す */
+    width: 100%; /* 親 (body) の幅いっぱいを使う */
 }
+
+footer {
+    width: 100%; /* 親 (body) の幅いっぱいを使う */
+}
+
 
 /* ==================== */
 /* 4. タイポグラフィ (見出し、リンクなど) */
@@ -63,120 +70,115 @@ main {
 
 /* 見出し共通のスタイル */
 h1, h2, h3, h4 {
-    font-family: "Noto Sans JP", sans-serif; /* bodyから継承されるが明示 */
+    font-family: "Noto Sans JP", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    line-height: 1.2; /* 見出しの行間 */
-    color: var(--text-color); /* 基本テキスト色 */
+    line-height: 1.2;
+    color: var(--text-color);
+    margin-top: 0; /* デフォルトマージンのリセット */
+    margin-bottom: 20px; /* 見出しの下にスペース */
 }
 
 /* 各見出しのサイズと太さ */
 h1 {
-    font-size: 2.5em; /* 適切な大きさへ */
-    font-weight: 700; /* h1は特に太く */
+    font-size: 2.5em;
+    font-weight: 700;
     text-align: center; /* サイトタイトルは中央寄せ */
     margin-bottom: 10px; /* タイトルとサブサイト名（サイトトップリンク）の間の余白を調整 */
-    margin-top: 0; /* bodyのデフォルトマージンをリセットした場合にh1の上マージンを調整 */
 }
 h2 {
     font-size: 2em;
     font-weight: 600;
-    margin-bottom: 20px; /* 見出しの下にスペース */
-    margin-top: 0; /* デフォルトマージンをリセット */
 }
 h3 {
     font-size: 1.5em;
     font-weight: 500;
-    margin-bottom: 20px; /* 見出しの下にスペース */
-    margin-top: 0; /* デフォルトマージンをリセット */
 }
 h4 {
     font-size: 1.2em;
     font-weight: 500;
-    margin-bottom: 20px; /* 見出しの下にスペース */
-    margin-top: 0; /* デフォルトマージンをリセット */
 }
 
 /* Serif フォントが必要な場合 */
 .Serif {
-    font-family: "Noto Serif JP", serif; /* sans-serifではなくserif */
+    font-family: "Noto Serif JP", serif;
     font-weight: 400;
 }
 
 /* リンクのスタイル */
 a:link, a:visited {
-    color: var(--primary-color); /* メインカラーをリンク色に */
-    text-decoration: none; /* 下線を非表示 */
+    color: var(--primary-color);
+    text-decoration: none;
 }
 a:hover {
-    text-decoration: underline; /* ホバーで下線を表示 */
+    text-decoration: underline;
 }
 a:active {
-    color: var(--primary-color); /* アクティブ時の色 (基本はhoverと同じでOK) */
+    color: var(--primary-color);
 }
 
 /* 段落のスタイル */
 p {
-    margin-bottom: 15px; /* 段落の下にスペース */
-    margin-top: 0; /* デフォルトマージンをリセット */
+    margin-bottom: 15px;
+    margin-top: 0;
 }
 
 /* ==================== */
 /* 5. 画像とメディア */
 /* ==================== */
 .responsive-image {
-    max-width: 100%; /* 親要素の幅を超えないようにする */
-    height: auto;    /* 幅に合わせて高さを自動調整 */
-    display: block;  /* ブロック要素化してマージンautoを有効に */
-    margin: 0 auto;  /* 中央寄せ */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 /* ==================== */
 /* 6. 特定コンポーネント: カテゴリリンク (トップページ用) */
 /* ==================== */
 .category-links {
-    margin-top: 30px; /* カテゴリリンクブロックの上にスペース */
-    display: flex;       /* Flexboxで横並びに（PC向け） */
-    flex-wrap: wrap;     /* 画面幅が足りなくなったら折り返す */
-    gap: 20px;           /* カード間の余白 */
-    justify-content: center; /* カードを中央寄せにする */
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .card-link {
-    border: 1px solid var(--border-color); /* 枠線 */
-    border-radius: 8px; /* 角を丸く */
-    padding: 20px; /* 内側の余白 */
-    margin-bottom: 20px; /* カードの下の余白 */
-    transition: box-shadow 0.3s ease; /* ホバー時のアニメーション */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 軽い影 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 
-    flex: 1 1 calc(50% - 20px); /* PCでは2列表示（gapを考慮）*/
-    max-width: calc(50% - 20px); /* 2列表示の最大幅 */
-    box-sizing: border-box; /* paddingとborderを幅に含める */
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    box-sizing: border-box;
 }
 
 @media (max-width: 767px) {
     .card-link {
-        flex: 1 1 100%; /* スマホでは1列表示 */
+        flex: 1 1 100%;
         max-width: 100%;
     }
 }
 
 .card-link:hover {
-    box-shadow: 0 4px 8px var(--hover-shadow-color); /* ホバーで影を強調 */
+    box-shadow: 0 4px 8px var(--hover-shadow-color);
 }
 
 .card-link a {
     text-decoration: none;
-    color: inherit; /* 親要素の色を継承 */
-    display: block; /* リンク全体をブロック要素化 */
+    color: inherit;
+    display: block;
 }
 .card-link h2 {
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 10px;
-    color: var(--primary-color); /* 見出しのリンク色に合わせる */
+    color: var(--primary-color);
 }
 .card-link p {
     font-size: 0.95em;
@@ -191,36 +193,36 @@ p {
 /* 7. フッター */
 /* ==================== */
 footer {
-    background-color: var(--text-color); /* フッターの背景色を濃いグレーに */
-    color: #fff; /* 文字色を白に */
-    text-align: center; /* フッター内のテキストを中央寄せ */
-    padding: 20px 0; /* 上下に20pxの余白 */
-    font-size: 0.9em; /* 少し小さめの文字サイズ */
+    background-color: var(--text-color);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
 }
 
 footer p {
-    margin: 0; /* 段落のデフォルトのマージンをリセット */
-    padding-bottom: 10px; /* コピーライトとリストの間に少し余白 */
+    margin: 0;
+    padding-bottom: 10px;
 }
 
 footer ul {
-    list-style: none; /* リストの点（マーカー）を非表示にする */
-    padding: 0;       /* デフォルトのパディングをリセット */
-    margin: 0;        /* デフォルトのマージンをリセット */
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 footer ul li {
-    display: inline-block; /* 項目を横並びにする */
-    margin: 0 10px;        /* 項目間の左右の余白 */
+    display: inline-block;
+    margin: 0 10px;
 }
 
 footer ul li a {
-    color: #fff;            /* リンクの色を白に */
-    text-decoration: none;  /* 下線を非表示にする */
+    color: #fff;
+    text-decoration: none;
 }
 
 footer ul li a:hover {
-    text-decoration: underline; /* ホバーで下線を表示 */
+    text-decoration: underline;
 }
 
 
@@ -250,29 +252,29 @@ header .container {
 }
 
 .latest-post-section h2 {
-    font-size: 2.5em; /* メインの見出しを大きく */
-    color: var(--primary-color); /* 目立つ色にする */
-    text-align: center; /* 中央寄せ */
-    margin-bottom: 30px; /* 下に余白 */
-    border-bottom: 2px solid var(--primary-color); /* 下線で強調 */
-    padding-bottom: 10px; /* 下線との間に余白 */
+    font-size: 2.5em;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
 }
 
 /* 最新の投稿カードのスタイル */
 .latest-post-card {
-    border: 2px solid var(--primary-color); /* 枠線を太く、メインカラーに */
-    border-radius: 10px; /* 角を少し丸く */
-    padding: 25px;       /* パディングを少し増やす */
-    background-color: var(--light-bg); /* 背景色を少し変えて目立たせる */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 影を強調 */
-    max-width: 700px;    /* PCでは、最新の投稿カードは少し大きめに、でも制限をかける */
-    margin: 0 auto;      /* 中央寄せ */
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 25px;
+    background-color: var(--light-bg);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    max-width: 700px;
+    margin: 0 auto;
     transition: all 0.3s ease;
 }
 
 .latest-post-card:hover {
-    box-shadow: 0 12px 24px rgba(0,0,0,0.25); /* ホバー時の影をさらに強調 */
-    transform: translateY(-5px); /* 少し上に浮き上がるアニメーション */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    transform: translateY(-5px);
 }
 
 /* 最新の投稿カード内の要素も少し大きく調整 */
@@ -282,9 +284,9 @@ header .container {
     color: #666;
 }
 .latest-post-card h3 {
-    font-size: 1.8em; /* 最新記事のタイトルは大きめに */
+    font-size: 1.8em;
     font-weight: 700;
-    color: var(--text-color); /* 文字色を濃く */
+    color: var(--text-color);
 }
 .latest-post-card .article-excerpt {
     font-size: 1.0em;
@@ -313,19 +315,19 @@ header .container {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 20px; /* カードの下の余白 */
+    margin-bottom: 20px;
     transition: box-shadow 0.3s ease;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 
-    flex: 1 1 calc(50% - 20px); /* PCでは2列表示（gapを考慮）*/
-    max-width: calc(50% - 20px); /* 2列表示の最大幅 */
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
     box-sizing: border-box;
 }
 
 @media (max-width: 767px) {
     .article-card {
-        flex: 1 1 100%; /* スマホでは1列表示 */
+        flex: 1 1 100%;
         max-width: 100%;
     }
 }
@@ -378,4 +380,99 @@ header .container {
     margin-top: 30px;
     margin-bottom: 15px;
     text-align: center;
+}
+
+/* ==================== */
+/* 9. Blog記事本体のスタイル */
+/* ==================== */
+
+.blog-post {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 軽い影 */
+    margin-bottom: 40px; /* 記事の下に余白 */
+}
+
+/* 記事ヘッダー */
+.post-header {
+    text-align: center; /* 記事タイトルとメタ情報を中央寄せ */
+    margin-bottom: 30px;
+}
+
+.post-title {
+    font-size: 2.8em; /* 記事のタイトルを大きく目立たせる */
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 10px; /* タイトルとメタ情報の間の余白 */
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: #888; /* 日付などは少し薄い色に */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* 記事本文 */
+.post-content {
+    line-height: 1.8; /* 本文の行間を少し広げて読みやすく */
+    font-size: 1.05em; /* 本文のフォントサイズを少し大きく */
+}
+
+.post-content h2 {
+    font-size: 1.8em; /* 記事内のh2は少し小さめに */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color); /* 下線で区切り */
+    padding-bottom: 5px;
+    text-align: left; /* 記事内の見出しは左寄せに戻す */
+}
+
+.post-content h4 {
+    font-size: 1.3em; /* 記事内のh4 */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left; /* 記事内の見出しは左寄せに戻す */
+}
+
+.post-content p {
+    margin-bottom: 1em; /* 段落ごとの下マージン */
+}
+
+/* 記事フッター (ナビゲーション) */
+.post-footer {
+    margin-top: 50px; /* 記事本文との間に十分な余白 */
+    text-align: center; /* ナビゲーションリンクを中央寄せ */
+}
+
+.post-navigation {
+    display: flex; /* ボタンを横並びに */
+    justify-content: center; /* 中央寄せ */
+    gap: 20px; /* ボタン間の余白 */
+    flex-wrap: wrap; /* スマホで折り返す */
+}
+
+/* ボタンの共通スタイル */
+.button {
+    display: inline-block; /* ボタンの見た目 */
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; /* ボタン内のテキストが改行されないように */
+}
+
+.button:hover {
+    /* darken() はCSSの標準関数ではないため、具体的な色を指定するか、JSなどで処理します */
+    background-color: #0056b3; /* 例: var(--primary-color) #007bff より少し暗い色 */
+    transform: translateY(-2px); /* 少し浮き上がる */
+}
+
+/* greeting-messageのスタイルは既存のままでOK */
+.greeting-message {
+    /* JavaScriptで内容が挿入されるため、特別なスタイルは不要 */
 }
