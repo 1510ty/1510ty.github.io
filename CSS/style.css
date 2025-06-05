@@ -7,6 +7,7 @@ html {
 
 body {
     height: 100%; /* ビューポートの高さいっぱいに広げる */
+    min-height: 100vh; /* 少なくともビューポートの高さにする */
     display: flex;             /* Flexboxを有効にする */
     flex-direction: column;    /* 要素を縦方向に並べる (header, main, footer) */
     font-family: "Noto Sans JP", sans-serif;
@@ -19,18 +20,6 @@ body {
     background-color: #fff; /* 白い背景 */
     margin: 0;
     padding: 0;
-}
-
-/* メインコンテンツ部分を可変にする */
-/* おそらくサイト全体を覆っているdiv.containerまたは.site-containerに適用 */
-.container { /* または .site-container */
-    flex: 1; /* これが重要！残りのスペースをすべて占めるようにする */
-    /* padding-bottom: ...; フッターとコンテンツが重ならないように必要に応じて調整 */
-}
-
-/* もしヘッダーとフッターがcontainerの外にある場合、以下も必要 */
-main {
-    flex: 1; /* main要素が残りのスペースを埋めるようにする */
 }
 
 /* ==================== */
@@ -49,7 +38,14 @@ main {
 /* ==================== */
 /* 3. レイアウトとコンテナ */
 /* ==================== */
-.container {
+
+/* Sticky Footer のための設定をここに移動・統合 */
+/* bodyの直接の子要素で、コンテンツ全体を囲むコンテナに適用 */
+.container,
+.site-container {
+    flex-grow: 1; /* 残りのスペースを全て占有して伸びる */
+    display: flex; /* これらのコンテナ自体もFlexコンテナにする */
+    flex-direction: column; /* その中の子要素を縦に並べる */
     max-width: 960px; /* サイト全体の最大幅 (PCでの見やすさのため) */
     margin: 0 auto;   /* 中央寄せ */
     padding: 20px;    /* 左右と上下に余白を設ける */
@@ -57,14 +53,32 @@ main {
     width: 100%; /* containerが親要素の幅を占めるように（必要に応じて） */
 }
 
+/* header, main, footer が .container または .site-container の直下にある場合 */
+main {
+    flex-grow: 1; /* main要素が残りのスペースを埋めるようにする */
+}
+
+/* Web関連トップページのようにmainタグがなく、ナビゲーションが実質的なメインコンテンツの場合 */
+/* headerとfooterの間にある要素がflex-growで伸びるように調整 */
+/* index.html（サイトトップ）の`main`と、Web関連情報ページの`category-dropdown-nav`は異なる要素なので注意 */
+/* `body`がFlexコンテナで、その直接の子要素が`header`, `nav`, `footer`の場合 */
+body > .category-dropdown-nav { /* bodyの直接の子要素のcategory-dropdown-nav */
+    flex-grow: 1;
+    /* Web関連情報のカテゴリページには`h1`や`p`が`body`直下にありますが、
+       これらにもFlexboxの伸縮性が必要な場合は、
+       これら全体を囲むdivを`main`の代わりに使用するか、
+       個別にflex-growを適用する必要があります。
+       今回は`category-dropdown-nav`が最もボリュームがあるメインコンテンツと仮定。
+       もし`h1`, `p`要素なども伸縮させたい場合は、それらを`main`で囲むHTML構造が理想です。
+    */
+}
+
+
 header {
     width: 100%;
 }
 
-main {
-    flex-grow: 1;
-    width: 100%;
-}
+/* mainは上記でflex-grow: 1を設定済み */
 
 footer {
     width: 100%;
@@ -202,6 +216,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     font-size: 0.9em;
+    margin-top: auto; /* これもsticky footerに貢献 */
 }
 
 footer p {
@@ -461,7 +476,7 @@ header .container {
 .button {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #fff; /* ここを灰色に変更しました */
+    background-color: #6c757d; /* ここを灰色に変更しました */
     color: #fff; /* 文字色を白に強制 */
     border-radius: 5px;
     text-decoration: none; /* ここで下線を強制的に非表示 */
@@ -474,4 +489,113 @@ header .container {
     background-color: #5a6268; /* ホバーで少し濃い灰色 */
     transform: translateY(-2px);
     text-decoration: none; /* ホバー時も下線を非表示 */
+}
+
+/* ==================== */
+/* 10. プルダウンメニュー (Web関連情報ページ用) */
+/* ==================== */
+.category-dropdown-nav {
+    margin-top: 30px;
+    margin-bottom: 40px; /* 下に余白 */
+    text-align: center; /* メニュー全体を中央寄せ */
+}
+
+.category-dropdown-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; /* メニュー全体を中央寄せ */
+    display: inline-block; /* メニューの幅を内容に合わせる */
+    position: relative; /* ドロップダウンメニューの基準位置 */
+}
+
+.category-dropdown-nav li {
+    position: relative;
+    display: inline-block; /* 横並びにする */
+    margin: 0 15px; /* 各メニューアイテム間のスペース */
+}
+
+.category-dropdown-nav a {
+    display: block; /* リンク全体をクリック可能に */
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--primary-color); /* リンク色をメインカラーに */
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* テキストの改行を防ぐ */
+}
+
+.category-dropdown-nav a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* ドロップダウンメニュー本体 */
+.dropdown-menu {
+    display: none; /* 初期状態では非表示 */
+    position: absolute;
+    top: 100%; /* 親アイテムの真下に配置 */
+    left: 0;
+    background-color: #fff; /* 背景色 */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-width: 200px; /* 最小幅を設定 */
+    z-index: 100; /* 他のコンテンツの上に表示 */
+    text-align: left; /* テキストを左寄せ */
+}
+
+.dropdown-menu li {
+    display: block; /* 縦並びにする */
+    margin: 0;
+}
+
+.dropdown-menu a {
+    padding: 10px 15px;
+    color: var(--text-color); /* ドロップダウン内のリンク色 */
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--light-bg); /* ホバー時の背景色 */
+    color: var(--primary-color); /* ホバー時の文字色 */
+    border-radius: 0; /* ドロップダウン内のアイテムは角丸なし */
+}
+
+/* ホバー時にドロップダウンメニューを表示 */
+.dropdown-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* レスポンシブ対応 (モバイルでは縦並びにする) */
+@media (max-width: 767px) {
+    .category-dropdown-nav ul {
+        width: 100%;
+        text-align: left; /* モバイルでは左寄せ */
+    }
+    .category-dropdown-nav li {
+        display: block; /* 縦並び */
+        margin: 0 0 10px 0; /* 各アイテムの下に余白 */
+    }
+/* ドロップダウンメニュー本体 */
+.dropdown-menu {
+    display: none; /* ここに !important を追加 */
+    position: static; /* モバイルではstaticにして通常のドキュメントフローに沿わせる */
+    top: auto;
+    left: auto;
+    background-color: transparent; /* 背景色を透明に */
+    border: none; /* ボーダーを削除 */
+    box-shadow: none; /* 影を削除 */
+    min-width: auto;
+    z-index: auto;
+    text-align: left;
+    margin-left: 20px; /* インデント */
+}
+    .dropdown-menu a {
+        padding: 5px 15px; /* パディングを調整 */
+    }
+/* ホバー時にドロップダウンメニューを表示 */
+.dropdown-item:hover .dropdown-menu {
+    display: block; /* ここにも !important を追加 */
+}
+    
 }
