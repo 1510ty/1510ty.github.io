@@ -1,113 +1,172 @@
-/* 修正案 */
+/* ==================== */
+/* 1. 全体設定と基本リセット */
+/* ==================== */
+html, body {
+    height: 100%; /* FlexboxのSticky Footerのために必要 */
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: "Noto Sans JP", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    font-weight: 350; /* 本文の標準的な太さ */
-    line-height: 1.7; /* 行間を追加して可読性UP */
-    font-size: 16px; /* モバイルでの読みやすさを考慮 */
-    color: var(--text-color); /* 色変数を適用 */
-    background-color: #fff;
-    margin: 0;
+    font-weight: 350; /* 本文の標準的な太さ (細め) */
+    line-height: 1.7; /* 行間を広げて可読性UP */
+    font-size: 16px; /* モバイルでの読みやすさを考慮したベースサイズ */
+    color: var(--text-color); /* 定義したテキストカラーを適用 */
+    background-color: #fff; /* 白い背景 */
 }
 
-h1, h2, h3, h4 { /* 見出し共通のスタイル */
-    font-family: "Noto Sans JP", sans-serif; /* bodyから継承されるので、不要な場合あり */
-    font-optical-sizing: auto; /* bodyから継承されるので、不要な場合あり */
-    font-style: normal; /* bodyから継承されるので、不要な場合あり */
-    font-weight: 500; /* 見出しの太さ */
-    line-height: 1.2; /* 見出しの行間 */
-    margin-bottom: 20px; /* 前回の提案を適用 */
+/* ==================== */
+/* 2. カラー変数定義 */
+/* ==================== */
+:root {
+    --primary-color: #007bff; /* メインカラーを青 (例: 少し濃いめの青) */
+    --text-color: #333; /* 標準テキスト色 */
+    --light-bg: #f8f8f8; /* 薄い背景色 (最新記事カードなどに利用) */
+    --border-color: #ddd; /* 汎用的な枠線色 */
+    --shadow-color: rgba(0,0,0,0.1); /* 影の色 */
+    --hover-shadow-color: rgba(0,0,0,0.15); /* ホバー時の影の色 */
 }
 
-/* 各見出しのサイズを調整 */
-h1 {
-    font-size: 2.5em; /* 適切な大きさへ */
-    font-weight: 700; /* h1だけ特に太くするのもあり */
-}
-h2 {
-    font-size: 2em;
-}
-/* 以下略 */
-.Serif {
-  font-family: "Noto Serif JP", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
 
-.responsive-image {
-    width: 100%;   /* 親要素の幅の85%で表示 */
-    height: auto; /* 幅に合わせて高さを自動調整 */
-    display: block;
-}
-
-body {
-    margin: 0; /* bodyのデフォルトマージンをリセット */
+/* ==================== */
+/* 3. レイアウトとコンテナ */
+/* ==================== */
+.site-container {
+    display: flex;             /* Flexboxを有効にする */
+    flex-direction: column;    /* 要素を縦方向に並べる */
+    min-height: 100vh;         /* ビューポートの高さ（vh）を基準に最低高さを100%に設定 */
 }
 
 .container {
-    max-width: 960px; /* サイト全体の最大幅を設定 (PCでの見やすさのため) */
+    max-width: 960px; /* サイト全体の最大幅 (PCでの見やすさのため) */
     margin: 0 auto;   /* 中央寄せ */
     padding: 20px;    /* 左右と上下に余白を設ける */
+    box-sizing: border-box; /* paddingを含めて幅と高さを計算 */
 }
 
-header, main, footer {
-    padding: 20px 0; /* 各セクションの上下に余白 */
+/* ヘッダー、メイン、フッター自体の上下のパディング */
+/* 各セクションの上下の余白は.containerのpaddingで調整されるか、
+   各要素内で個別に設定する方が柔軟なため、ここからは削除されています。
+   もし、ヘッダー全体やフッター全体の背景色などにパディングを適用したい場合は、
+   header { padding: 20px 0; } のようにここに記述してください。 */
+
+main {
+    flex-grow: 1; /* 残りのスペースを全て占有し、フッターを下に押し出す */
 }
 
-/* 各要素間の余白も統一的に */
+/* ==================== */
+/* 4. タイポグラフィ (見出し、リンクなど) */
+/* ==================== */
+
+/* 見出し共通のスタイル */
+h1, h2, h3, h4 {
+    font-family: "Noto Sans JP", sans-serif; /* bodyから継承されるが明示 */
+    font-optical-sizing: auto;
+    font-style: normal;
+    line-height: 1.2; /* 見出しの行間 */
+    color: var(--text-color); /* 基本テキスト色 */
+}
+
+/* 各見出しのサイズと太さ */
 h1 {
+    font-size: 2.5em; /* 適切な大きさへ */
+    font-weight: 700; /* h1は特に太く */
+    text-align: center; /* サイトタイトルは中央寄せ */
+    margin-bottom: 10px; /* タイトルとサブサイト名（サイトトップリンク）の間の余白を調整 */
+    margin-top: 0; /* bodyのデフォルトマージンをリセットした場合にh1の上マージンを調整 */
+}
+h2 {
+    font-size: 2em;
+    font-weight: 600;
     margin-bottom: 20px; /* 見出しの下にスペース */
+    margin-top: 0; /* デフォルトマージンをリセット */
 }
-p {
-    margin-bottom: 15px; /* 段落の下にスペース */
+h3 {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-bottom: 20px; /* 見出しの下にスペース */
+    margin-top: 0; /* デフォルトマージンをリセット */
 }
-.category-links {
-    margin-top: 30px; /* カテゴリリンクブロックの上にスペース */
-}
-.kategori {
-    margin-bottom: 10px; /* 各カテゴリリンクの下にスペース */
-}
-
-/* 例: メインカラーを定義 */
-:root {
-    --primary-color: blue; /* 緑 */
-    --text-color: #333;
-    --light-bg: #f8f8f8;
+h4 {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 20px; /* 見出しの下にスペース */
+    margin-top: 0; /* デフォルトマージンをリセット */
 }
 
-body {
-    color: var(--text-color);
-    background-color: #fff;
+/* Serif フォントが必要な場合 */
+.Serif {
+    font-family: "Noto Serif JP", serif; /* sans-serifではなくserif */
+    font-weight: 400;
 }
 
-h1 a {
-    color: var(--primary-color); /* 見出しのリンク色 */
-}
-
+/* リンクのスタイル */
 a:link, a:visited {
-    color: var(--primary-color); /* 通常のリンク色 */
+    color: var(--primary-color); /* メインカラーをリンク色に */
+    text-decoration: none; /* 下線を非表示 */
 }
 a:hover {
-    color: darken(var(--primary-color), 10%); /* ホバー時は少し濃くする */
+    text-decoration: underline; /* ホバーで下線を表示 */
+}
+a:active {
+    color: var(--primary-color); /* アクティブ時の色 (基本はhoverと同じでOK) */
 }
 
-footer {
-    text-align: center;
-    background-color: var(--text-color); /* フッターの背景色を濃いグレーに */
-    color: #fff;
+/* 段落のスタイル */
+p {
+    margin-bottom: 15px; /* 段落の下にスペース */
+    margin-top: 0; /* デフォルトマージンをリセット */
 }
+
+/* ==================== */
+/* 5. 画像とメディア */
+/* ==================== */
+.responsive-image {
+    max-width: 100%; /* 親要素の幅を超えないようにする */
+    height: auto;    /* 幅に合わせて高さを自動調整 */
+    display: block;  /* ブロック要素化してマージンautoを有効に */
+    margin: 0 auto;  /* 中央寄せ */
+}
+
+/* ==================== */
+/* 6. 特定コンポーネント: カテゴリリンク (トップページ用) */
+/* ==================== */
+.category-links {
+    margin-top: 30px; /* カテゴリリンクブロックの上にスペース */
+    display: flex;       /* Flexboxで横並びに（PC向け） */
+    flex-wrap: wrap;     /* 画面幅が足りなくなったら折り返す */
+    gap: 20px;           /* カード間の余白 */
+    justify-content: center; /* カードを中央寄せにする */
+}
+
 .card-link {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: box-shadow 0.3s ease;
+    border: 1px solid var(--border-color); /* 枠線 */
+    border-radius: 8px; /* 角を丸く */
+    padding: 20px; /* 内側の余白 */
+    margin-bottom: 20px; /* カードの下の余白 */
+    transition: box-shadow 0.3s ease; /* ホバー時のアニメーション */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 軽い影 */
+
+    flex: 1 1 calc(50% - 20px); /* PCでは2列表示（gapを考慮）*/
+    max-width: calc(50% - 20px); /* 2列表示の最大幅 */
+    box-sizing: border-box; /* paddingとborderを幅に含める */
 }
+
+@media (max-width: 767px) {
+    .card-link {
+        flex: 1 1 100%; /* スマホでは1列表示 */
+        max-width: 100%;
+    }
+}
+
 .card-link:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px var(--hover-shadow-color); /* ホバーで影を強調 */
 }
+
 .card-link a {
     text-decoration: none;
     color: inherit; /* 親要素の色を継承 */
@@ -117,8 +176,206 @@ footer {
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 10px;
+    color: var(--primary-color); /* 見出しのリンク色に合わせる */
 }
 .card-link p {
     font-size: 0.95em;
     color: #666;
+}
+
+/* .kategori クラスはカード化により不要になる可能性が高いが、残すなら下記のように定義 */
+/* .kategori { font-size: 24px; } */
+
+
+/* ==================== */
+/* 7. フッター */
+/* ==================== */
+footer {
+    background-color: var(--text-color); /* フッターの背景色を濃いグレーに */
+    color: #fff; /* 文字色を白に */
+    text-align: center; /* フッター内のテキストを中央寄せ */
+    padding: 20px 0; /* 上下に20pxの余白 */
+    font-size: 0.9em; /* 少し小さめの文字サイズ */
+}
+
+footer p {
+    margin: 0; /* 段落のデフォルトのマージンをリセット */
+    padding-bottom: 10px; /* コピーライトとリストの間に少し余白 */
+}
+
+footer ul {
+    list-style: none; /* リストの点（マーカー）を非表示にする */
+    padding: 0;       /* デフォルトのパディングをリセット */
+    margin: 0;        /* デフォルトのマージンをリセット */
+}
+
+footer ul li {
+    display: inline-block; /* 項目を横並びにする */
+    margin: 0 10px;        /* 項目間の左右の余白 */
+}
+
+footer ul li a {
+    color: #fff;            /* リンクの色を白に */
+    text-decoration: none;  /* 下線を非表示にする */
+}
+
+footer ul li a:hover {
+    text-decoration: underline; /* ホバーで下線を表示 */
+}
+
+
+/* ==================== */
+/* 8. Blog一覧ページ固有のスタイル */
+/* ==================== */
+
+/* ヘッダーの調整 (サイト名とナビゲーションの配置) */
+header .container {
+    text-align: center; /* コンテナ内の要素 (h1, .site-nav) を中央寄せ */
+    padding-top: 20px; /* ヘッダー上部の余白 */
+    padding-bottom: 20px; /* ヘッダー下部の余白 */
+}
+
+.site-nav {
+    margin-top: 10px; /* h1とサイトトップリンクの間の余白 */
+}
+
+.site-nav a {
+    display: inline-block; /* リンクがブロック要素でないため、inline-blockにしてマージンやパディングを適用しやすくする */
+    padding: 5px 10px; /* リンクのクリックしやすい範囲を広げる */
+}
+
+/* 最新の投稿セクション */
+.latest-post-section {
+    margin-bottom: 40px; /* 通常の記事一覧との間に余白 */
+}
+
+.latest-post-section h2 {
+    font-size: 2.5em; /* メインの見出しを大きく */
+    color: var(--primary-color); /* 目立つ色にする */
+    text-align: center; /* 中央寄せ */
+    margin-bottom: 30px; /* 下に余白 */
+    border-bottom: 2px solid var(--primary-color); /* 下線で強調 */
+    padding-bottom: 10px; /* 下線との間に余白 */
+}
+
+/* 最新の投稿カードのスタイル */
+.latest-post-card {
+    border: 2px solid var(--primary-color); /* 枠線を太く、メインカラーに */
+    border-radius: 10px; /* 角を少し丸く */
+    padding: 25px;       /* パディングを少し増やす */
+    background-color: var(--light-bg); /* 背景色を少し変えて目立たせる */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 影を強調 */
+    max-width: 700px;    /* PCでは、最新の投稿カードは少し大きめに、でも制限をかける */
+    margin: 0 auto;      /* 中央寄せ */
+    transition: all 0.3s ease;
+}
+
+.latest-post-card:hover {
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25); /* ホバー時の影をさらに強調 */
+    transform: translateY(-5px); /* 少し上に浮き上がるアニメーション */
+}
+
+/* 最新の投稿カード内の要素も少し大きく調整 */
+.latest-post-card .article-date {
+    font-size: 1em;
+    font-weight: 500;
+    color: #666;
+}
+.latest-post-card h3 {
+    font-size: 1.8em; /* 最新記事のタイトルは大きめに */
+    font-weight: 700;
+    color: var(--text-color); /* 文字色を濃く */
+}
+.latest-post-card .article-excerpt {
+    font-size: 1.0em;
+    color: #444;
+}
+
+/* 区切り線 */
+.separator {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 60px auto; /* 上下に広い余白、中央寄せ */
+    max-width: 700px; /* 区切り線もコンテンツ幅に合わせる */
+}
+
+/* 記事一覧のコンテナ */
+.article-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* 各記事カードのスタイル */
+.article-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px; /* カードの下の余白 */
+    transition: box-shadow 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+    flex: 1 1 calc(50% - 20px); /* PCでは2列表示（gapを考慮）*/
+    max-width: calc(50% - 20px); /* 2列表示の最大幅 */
+    box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+    .article-card {
+        flex: 1 1 100%; /* スマホでは1列表示 */
+        max-width: 100%;
+    }
+}
+
+/* ホバー時の影 */
+.article-card:hover {
+    box-shadow: 0 6px 12px var(--hover-shadow-color);
+}
+
+/* カード内のリンク */
+.article-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* 記事タイトル */
+.article-card h3 {
+    font-size: 1.3em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+/* 記事日付 */
+.article-card .article-date {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* 記事概要 */
+.article-card .article-excerpt {
+    font-size: 0.95em;
+    color: #555;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* 年と月の見出しのスタイル調整 */
+.year-section h3 {
+    font-size: 2.2em;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.month-group h4 {
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
 }
