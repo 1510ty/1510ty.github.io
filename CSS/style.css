@@ -449,7 +449,7 @@ header .container {
 .button {
     display: inline-block;
     padding: 12px 25px;
-    background-color: var(--primary-color);
+    background-color: #fff; /* ここを灰色に変更しました */
     color: #fff; /* 文字色を白に強制 */
     border-radius: 5px;
     text-decoration: none; /* ここで下線を強制的に非表示 */
@@ -459,7 +459,7 @@ header .container {
 }
 
 .button:hover {
-    background-color: #0056b3; /* ホバーで少し濃い青 */
+    background-color: #5a6268; /* ホバーで少し濃い灰色 */
     transform: translateY(-2px);
     text-decoration: none; /* ホバー時も下線を非表示 */
 }
