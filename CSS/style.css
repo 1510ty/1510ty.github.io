@@ -463,3 +463,104 @@ header .container {
     transform: translateY(-2px);
     text-decoration: none; /* ホバー時も下線を非表示 */
 }
+
+/* ==================== */
+/* 10. プルダウンメニュー (Web関連情報ページ用) */
+/* ==================== */
+.category-dropdown-nav {
+    margin-top: 30px;
+    margin-bottom: 40px; /* 下に余白 */
+    text-align: center; /* メニュー全体を中央寄せ */
+}
+
+.category-dropdown-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; /* メニュー全体を中央寄せ */
+    display: inline-block; /* メニューの幅を内容に合わせる */
+    position: relative; /* ドロップダウンメニューの基準位置 */
+}
+
+.category-dropdown-nav li {
+    position: relative;
+    display: inline-block; /* 横並びにする */
+    margin: 0 15px; /* 各メニューアイテム間のスペース */
+}
+
+.category-dropdown-nav a {
+    display: block; /* リンク全体をクリック可能に */
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--primary-color); /* リンク色をメインカラーに */
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* テキストの改行を防ぐ */
+}
+
+.category-dropdown-nav a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* ドロップダウンメニュー本体 */
+.dropdown-menu {
+    display: none; /* 初期状態では非表示 */
+    position: absolute;
+    top: 100%; /* 親アイテムの真下に配置 */
+    left: 0;
+    background-color: #fff; /* 背景色 */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-width: 200px; /* 最小幅を設定 */
+    z-index: 100; /* 他のコンテンツの上に表示 */
+    text-align: left; /* テキストを左寄せ */
+}
+
+.dropdown-menu li {
+    display: block; /* 縦並びにする */
+    margin: 0;
+}
+
+.dropdown-menu a {
+    padding: 10px 15px;
+    color: var(--text-color); /* ドロップダウン内のリンク色 */
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--light-bg); /* ホバー時の背景色 */
+    color: var(--primary-color); /* ホバー時の文字色 */
+    border-radius: 0; /* ドロップダウン内のアイテムは角丸なし */
+}
+
+/* ホバー時にドロップダウンメニューを表示 */
+.dropdown-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* レスポンシブ対応 (モバイルでは縦並びにする) */
+@media (max-width: 767px) {
+    .category-dropdown-nav ul {
+        width: 100%;
+        text-align: left; /* モバイルでは左寄せ */
+    }
+    .category-dropdown-nav li {
+        display: block; /* 縦並び */
+        margin: 0 0 10px 0; /* 各アイテムの下に余白 */
+    }
+    .dropdown-menu {
+        position: static; /* staticにして親要素の幅に合わせる */
+        width: 100%; /* 親要素の幅いっぱいに広げる */
+        box-shadow: none; /* 影をなくす */
+        border: none; /* 枠線をなくす */
+        background-color: transparent; /* 背景を透明に */
+        padding-left: 20px; /* インデントで子メニューを表現 */
+    }
+    .dropdown-menu a {
+        padding: 5px 15px; /* パディングを調整 */
+    }
+    .dropdown-item .dropdown-menu {
+        display: block; /* モバイルでは常に表示 (ホバー不要) */
+    }
+}
