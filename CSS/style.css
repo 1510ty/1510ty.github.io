@@ -463,3 +463,35 @@ header .container {
     transform: translateY(-2px);
     text-decoration: none; /* ホバー時も下線を非表示 */
 }
+
+/* ==================== */
+/* 11. ページ遷移アニメーション */
+/* ==================== */
+
+/* オーバーレイ要素 */
+.page-transition-overlay {
+    position: fixed; /* 画面全体に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* 黒い背景色 */
+    opacity: 0; /* 初期状態は透明 */
+    visibility: hidden; /* 初期状態は非表示 */
+    z-index: 9999; /* 他の要素より手前に表示 */
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out; /* フェードアニメーション */
+}
+
+/* フェードアウト時 */
+.page-transition-overlay.fade-out {
+    opacity: 1; /* 不透明にする */
+    visibility: visible; /* 表示する */
+    transition: opacity 0.5s ease-in, visibility 0.5s ease-in; /* フェードアウト用のアニメーションカーブ */
+}
+
+/* フェードイン時 (ページ読み込み後) */
+body.fade-in-active .page-transition-overlay {
+    opacity: 0; /* 透明にする */
+    visibility: hidden; /* 非表示にする */
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out; /* フェードイン用のアニメーションカーブ（少し長く） */
+}
