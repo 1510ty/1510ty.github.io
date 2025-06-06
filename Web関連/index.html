@@ -12,50 +12,43 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <div class="container">
-                <h1><a href=".">1510tyのWeb関連情報</a></h1>
+        <div class="container site-container"> <header>
+                <h1><a href="/">1510tyのサイト</a></h1>
                 <nav class="site-nav">
-                    <a href="..">1510tyのサイト</a>
+                    <a href="/Web関連/">1510tyのWeb関連情報</a>
                 </nav>
-            </div>
-        </header>
+            </header>
 
-        <main>
-            <div class="container">
-                <h2>はじめに</h2>
-                <p>このページ類では、1510tyがWeb関連情報をまとめていきます。まとめるといっても解説ですね。</p>
-                <p>まだまだ自分自身も未熟なところばかりですが、自分が躓いたことや、大変だったことを主に解説してきます。</p>
-                <p><s>つまり備忘録です</s></p>
-                
-                <p>※現在継続的な工事中です。一応利用可能です。</p>
+            <main>
+                <section class="category-section">
+                    <h2 class="section-title">Web関連情報のカテゴリ</h2>
+                    <nav class="category-dropdown-nav">
+                        <ul>
+                            <li class="dropdown-item">
+                                <a href="/Web関連/サーバー・ホスティングサービス/" class="dropdown-toggle">サーバー/ホスティングサービス</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Web関連/サーバー・ホスティングサービス/GithubPages/">Github Pages</a></li>
+                                </ul>
+                            </li>
+                            <li class="simple-item">
+                                <a href="任意のURL/">その他のカテゴリ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <p class="message">このページでは、1510tyがWeb関連情報をまとめていきます。まとめるといっても解説ですね。</p>
+                    <p class="message">まだまだ自分自身も未熟なところばかりですが、自分が躓いたことや、大変だったことを主に解説していきます。</p>
+                    <p class="message">今より備忘録です</p>
+                    <p class="message-note">※現在継続的な工事中です。一応利用可能です。</p>
+                </section>
+            </main>
 
-                <hr class="separator">
-
-                <h2>Web関連情報のカテゴリ</h2>
-                <div class="category-links"> <div class="card-link">
-                        <a href="サーバー・ホスティングサービス/">
-                            <h2>サーバー/ホスティングサービス</h2>
-                            <p>ウェブサイトの公開に欠かせないサーバーやホスティングサービスに関する情報です。</p>
-                        </a>
-                    </div>
-                    <div class="card-link">
-                        <a href="サーバー・ホスティングサービス/GithubPages/">
-                            <h2>Github Pages</h2>
-                            <p>無料で簡単に静的サイトを公開できるGitHub Pagesの利用方法やコツを紹介します。</p>
-                        </a>
-                    </div>
-                    </div>
-            </div></main>
-
-        <footer>
-            <div class="container">
+            <footer>
                 <p>&copy; 2025 1510tyのサイト All Rights Reserved.</p>
                 <ul>
-                    <li><a href="/privacy-policy.html">プライバシーポリシー</a></li>
-                    <li><a href="/contact.html">お問い合わせ</a></li>
+                    <li><a href="../privacypolicy/">プライバシーポリシー</a></li>
+                    <li><a href="../お問い合わせ/">お問い合わせ</a></li>
                 </ul>
-            </div>
-        </footer>
-        </body>
+            </footer>
+        </div>
+    </body>
 </html>

@@ -12,208 +12,158 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <div class="container">
-                <h1><a href="../../">1510tyのWeb関連情報</a></h1>
+        <div class="container site-container"> <header>
+                <h1><a href="/">1510tyのサイト</a></h1>
                 <nav class="site-nav">
-                    <a href="../../../">1510tyのサイト</a>
+                    <a href="/Web関連/">1510tyのWeb関連情報</a>
                 </nav>
-            </div>
-        </header>
+            </header>
 
-        <main>
-            <div class="container blog-post"> <p class="post-meta">※このページはPCでの閲覧を基本としています。スマホでも閲覧は可能ですが、見ずらい場合があります。その場合はPCやタブレットなどで閲覧することをお勧めします。</p>
-                
-                <h1 class="post-title">GithubPagesの使い方</h1> <div class="post-content"> <h2>1.はじめに</h2>
-                    <p>このページでは、GithubPagesの使い方を1510tyなりにわかりやすく解説します。</p>
-                    
-                    <h2>2.前提条件</h2>
-                    <ul>
-                        <li>ネットにつながっていてなおかつGithubにアクセスできるPC/スマホがあること (推奨PC、スマホでのやり方は割愛)</li>
-                        <li>HTMLの知識がある程度あること</li>
-                        <li>すでにページがある/今から作れること</li>
-                        <li>Githubアカウントを持っていること(作成方法については別で解説する予定)</li>
-                    </ul>
-                    
-                    <h2>3.GithubPagesの制約</h2>
-                    <ul>
-                        <li style="color: red;">PHPが使えない(動的サイトを作れない)</li>
-                        <li>商用利用の制限:オンラインマーケットなどの、機密情報を扱うサイトには適さない。</li>
-                        <li>不正なコンテンツの禁止:GitHubの利用規約を厳守する必要がある。</li>
-                        <li>アップローダーなどを作ることは禁止されています(これはGithubリポジトリの制約由来)</li>
-                        <li>最大1GB推奨。5GBなどを超えるとリポジトリが制限されたりする可能性がある。</li>
-                        <li>ビGitHubPagesのデプロイは、10分を超えるとタイムアウトする(GithubActionsを使った方法では別の制限がある)</li>
-                        <li>月間100GBまでという通信制限がある。(いわば動画などをたくさん転送すると、「今月ギガ足りない」現象が起きる)</li>
-                        <li>いろんな要因によってレート制限が課される可能性がある</li>
-                        <li>GitHubアカウントごとに1つのユーザー/組織サイトのみ作成できる(ユーザー/企業名.github.ioというリポジトリ名でホストされる)。</li>
-                        <li>各リポジトリごとに1つのプロジェクトサイトを作成できる(ユーザー/企業名.github.io/リポジトリの名前というURLでホストされる)。</li>
-                        <li>ほかにも多々ありますが、個人が使う分でぶつかる制約はこれくらいだと思います。</li>
-                    </ul>
-                    
-                    <h2>4.別のサービスという手</h2>
-                    <p>先ほどの3章で上げた通り、これらの制約にぶつかる場合は、</p>
-                    <ul>
-                        <li>他のホスティングサービス/独自サーバーを使う</li>
-                        <li>GithubPagesを使いながらなんとかぶつからないような運用をする</li>
-                    </ul>
-                    <p>などの手があります。</p>
-                    <p>特にPHPを使いたい場合はGithubPagesは向いていません。別のを使いましょう。</p>
-                    
-                    <h2>5.実際にやる手順</h2>
-                    <h3>0.Githubアカウントを作る</h3>
-                    <p>・これに関しては割愛させていただきます。まだ作ってない人はちゃちゃっとつくっちゃってください。</p>
-                    <p>・ネットで調べるとやり方の記事は無数に出てきます。</p>
-                    
-                    <h3>1.リポジトリを作る</h3>
-                    <figure>
+            <main class="blog-post-main"> <article class="blog-post">
+                    <header class="post-header">
+                        <h1 class="post-title">GithubPagesの使い方</h1>
+                    </header>
+
+                    <div class="post-content">
+                        <h2>1.はじめに</h2>
+                        <p>このページでは、GithubPagesの使い方を1510tyなりにわかりやすく解説します。</p>
+
+                        <h2>2.前提条件</h2>
+                        <ul>
+                            <li>ネットにつながっていてなおかつGithubにアクセスできるPC/スマホがあること (推奨PC、スマホでのやり方は割愛)</li>
+                            <li>HTMLの知識がある程度あること</li>
+                            <li>すでにページがある/今から作れること</li>
+                            <li>Githubアカウントを持っていること(作成方法については別で解説する予定)</li>
+                        </ul>
+
+                        <h2>3.GithubPagesの制約</h2>
+                        <ul>
+                            <li>商用利用の制限:オンラインマーケットなどの、機密情報を扱うサイトには適さない。</li>
+                            <li>不正なコンテンツの禁止:GitHubの利用規約を厳守する必要がある。</li>
+                            <li>アップローダーなどを作ることは禁止されています(これはGithubリポジトリの制約由来)</li>
+                            <li>最大1GB推奨。5GBなどを超えるとリポジトリが制限されたりする可能性がある。</li>
+                            <li>GitHubPagesのデプロイは、10分を超えるとタイムアウトする(GithubActionsを使った方法では別の制限がある)</li>
+                            <li>月間100GBまでという通信制限がある。(いわば動画などをたくさん転送すると、「今月ギガ足りない」現象が起きる)</li>
+                            <li>いろんな要因によってレート制限が課される可能性がある</li>
+                            <li>GitHubアカウントごとに1つのユーザー/組織サイトのみ作成できる(ユーザー/企業名.github.ioというリポジトリ名でホストされる)。</li>
+                            <li>各リポジトリごとに1つのプロジェクトサイトを作成できる(ユーザー/企業名.github.io/リポジトリの名前というURLでホストされる)。</li>
+                            <li>ほかにも多々ありますが、個人が使う分でぶつかる制約はこれくらいだと思います。</li>
+                        </ul>
+
+                        <h2>4.別のサービスという手</h2>
+                        <p>先ほどの3章で上げた通り、これらの制約にぶつかる場合は、</p>
+                        <ul>
+                            <li>他のホスティングサービス/独自サーバーを使う</li>
+                            <li>GithubPagesを使いながらなんとかぶつからないような運用をする</li>
+                        </ul>
+                        <p>などの手があります。</p>
+
+                        <h2>5.実際にやる手順</h2>
+                        <h3>0.Githubアカウントを作る</h3>
+                        <p>・これに関しては割愛させていただきます。まだ作ってない人はちゃちゃっとつくっちゃってください。</p>
+                        <p>・ネットで調べるとやり方の記事は無数に出てきます。</p>
+
+                        <h3>1.リポジトリを作る</h3>
                         <img class="responsive-image" src="https://ul.h3z.jp/UK1krq6u.webp" alt="Githubのリポジトリ作成画面。" loading="lazy">
-                        <figcaption>Githubのリポジトリ作成画面です。</figcaption>
-                    </figcaption>
-                    <p>普通にリポジトリを作ればOKです</p>
-                    <p>名前に関しては、使うURLによって変わります。</p>
-                    <p>「ユーザー名.github.io」というリポジトリ名にすれば、URLは「ユーザー名.github.io」となります。</p>
-                    <p>それ以外にした場合は、「ユーザー名.github.io/リポジトリ名」となります。</p>
-                    
-                    <h3>2.GithubPagesの有効化</h3>
-                    <p>これも意外と簡単です。ぽちぽちするだけです。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/U5sO2LlB.webp" alt="リポジトリ作成後の最初の画面。" loading="lazy">
-                        <figcaption>リポジトリ作成後の最初の画面です。</figcaption>
-                    </figure>
-                    <p>リポジトリが作れたらこんな感じになると思います。</p>
-                    <p>次に[Settings]を押します。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/8NdrX8zD.webp" alt="赤丸でSettingsを囲んでいる画像" loading="lazy">
-                        <figcaption>赤丸で囲まれている「Settings」ボタンをクリックします。</figcaption>
-                    </figure>
-                    <p>そしたら赤丸で囲んでいる[Pages]のところを押します。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/4OoigDmt.webp" alt="Pagesタブ?を赤丸で囲んでいる画像。" loading="lazy">
-                        <figcaption>「Pages」タブをクリックします。</figcaption>
-                    </figure>
-                    <p>画像で赤丸で囲んである、[Deploy from a branch]というボタンを押します。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/pMf7Xjyx.webp" alt="Deploy from a branchボタンが赤丸で囲んである画像" loading="lazy">
-                        <figcaption>「Deploy from a branch」ボタンをクリックします。</figcaption>
-                    </figure>
-                    <p>そしたら選択肢が出てくるので、[Github Actions]を押します。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/BWzV51jn.webp" alt="Github Actionsという選択肢が赤丸で囲んである画像" loading="lazy">
-                        <figcaption>「GitHub Actions」を選択します。</figcaption>
-                    </figure>
-                    <p>そしたらなんかたくさん出てくるので少しスクロールしたところにある、[Static HTML]内の、[Configure]を押します。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/NdZxeBzL.webp" alt="Static HTMLの枠が青で囲まれていて、Configureボタンが赤丸で囲んである画像" loading="lazy">
-                        <figcaption>「Static HTML」セクションの「Configure」ボタンをクリックします。</figcaption>
-                    </figure>
-                    <p>そしたらページが移動するので、特に何も変えずに、[Commit changes...]という緑のボタン(画像では赤丸で囲んであるボタン)を押します。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/5artfIa1.webp" alt="Commit changes...ボタンが赤丸で囲んである画像">
-                        <figcaption>「Commit changes...」ボタンをクリックします。</figcaption>
-                    </figure>
-                    <p>そしたらミニダイアログ見ないなのが出てくるので、そのまま[Commit changes]ボタンを押します。(画像では赤丸で囲んであるボタン)</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/R3UaWM9v.webp" alt="Commit chengesという緑のボタンが赤丸で囲んである画像">
-                        <figcaption>確認のダイアログで「Commit changes」ボタンをクリックします。</figcaption>
-                    </figure>
-                    <p>これでリポジトリの準備は完了です!</p>
-                    
-                    <h3>3.HTMLを実際に突っ込んでみる</h3>
-                    <p>これはGitでアップしても、Githubのサイト上からアップしても構いません。</p>
-                    <p>Gitの使い方については今回は割愛させていただきます。</p>
-                    <p>その代わり、ファイルを直接アップロードする方法を今回は載せます。</p>
-                    <p>慣れてきたらGitでアップすることをおすすめします。</p>
-                    <p>まずリポジトリのTop(Codeタブ)に戻ります。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/bjhn5zzf.webp" alt="リポジトリのTop(Codeタブ)の画像" loading="lazy">
-                        <figcaption>リポジトリの「Code」タブに戻ります。</figcaption>
-                    </figure>
-                    <p>次に[Add file]を押したのちに、[Upload files]を押します。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/jpcKczfq.webp" alt="Upload filesボタンが赤丸で囲んである画像" loading="lazy">
-                        <figcaption>「Add file」をクリックし、「Upload files」を選択します。</figcaption>
-                    </figure>
-                    <p>そしたらページが移動するので、真ん中の[Drag files here to add them to your repository]というところに、HTMLファイルをドラックアンドドロップするか、[choose your files]ボタンを押して、ファイルをアップロードします。</p>
-                    <p>名前は、index.htmlにしてください。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/fRq7hWYb.webp" alt="ドラップアンドドロップする枠がある画像。" loading="lazy">
-                        <figcaption>ファイルをドラッグ＆ドロップするか、「choose your files」ボタンでアップロードします。ファイル名は「index.html」にしてください。</figcaption>
-                    </figure>
-                    <p>アップロードできると、下に[Commit changes]という枠が出現します。そこにコミットメッセージと説明を入れます。</p>
-                    <p>入れなくてもアップロードはできますが、見返した際に、わかりやすいように軽く書いておくことをお勧めします。</p>
-                    <p>書くのがめんどくさい人や、見返す?ﾅﾆｿﾚｵｲｼｲﾉって人は書かなくても大丈夫です。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/Jt6PbzfW.webp" alt="Commit changesという枠が出てきた時の画像。" loading="lazy">
-                        <figcaption>コミットメッセージと説明を入力し、「Commit changes」ボタンをクリックします。</figcaption>
-                    </figure>
-                    <p>書けた/書かない人は、[Commit changes]ボタンを押します。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/wLlLkCVQ.webp" alt="ファイルアップロードページのCommit changesボタンが赤丸で囲んである画像" loading="lazy">
-                        <figcaption>「Commit changes」ボタンを押してアップロードを開始します。</figcaption>
-                    </figure>
-                    <p>そしたらアップロードが始まります。10秒くらいで終わります。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/PC0PhoTu.webp" alt="アップロード中の画面の画像。" loading="lazy">
-                        <figcaption>アップロード中です。</figcaption>
-                    </figure>
-                    <p>アップロードが終わったらリポジトリTopに戻されます。</p>
-                    
-                    <h3>4.反映されているかの確認</h3>
-                    <p>右下のほうの、github-pagesボタンを押します。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/aNP4bZP1.webp" alt="github-pagesボタンが赤丸で囲んである画像" loading="lazy">
-                        <figcaption>右下の「github-pages」ボタンをクリックします。</figcaption>
-                    </figure>
-                    <p>そしたらページが移動します。そしたら青文字のURLがあると思います。リポジトリ名を「ユーザー名.github.io」という名前にした場合のURLは、「ユーザー名.github.io」となっているはずです。</p>
-                    <p>リポジトリ名を、ほかの名前にした人は、「ユーザー名.github.io/リポジトリ名」となっているはずです。</p>
-                    <p>そしたらそのリンクを開きます。</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/WMmukUJR.webp" alt="リンク部分が青文字になっている画像。" loading="lazy">
-                        <figcaption>表示されたURLのリンクを開きます。</figcaption>
-                    </figure>
-                    <p>そしたら先ほどの手順でアップしたindex.htmlの内容が表示されるはずです!</p>
-                    <figure>
-                        <img class="responsive-image" src="https://ul.h3z.jp/6YZvfejn.webp" alt="先ほどの手順でアップロードしたindex.htmlの画像。" loading="lazy">
-                    </figure>
-                    <h3>正しく表示できていれば、成功です!</h3>
-                    <p>※404などになった/変更が適応されていない場合、まだGithubActionsが実行中の可能性があります。10秒くらい待ってから再読み込みしてみてください。</p>
-                    <h3>これにて全手順は終了となります! お疲れ様でした。</h3>
-                    
-                    <h2>最後に</h2>
-                    <p>今回はGithubPagesを使い始める手順を解説しました。</p>
-                    <p>GithubPagesは、とても便利なサービスだと思います</p>
-                    <p>特に、とりあえずテストでサイトを開きたい場合や、手軽に開きたい場合などにとてもおすすめです。</p>
-                    <p>逆に、GithubPagesで物足りなくなってきたり、不便が起きるようになってきたら、別のホスティングサービスや、独自サーバー(レンタルサーバー・VPS)を用意するのも手です。</p>
-                    <p>何かこのページへの意見・コメントがある場合は、GoogleFormsからお願いします。</p>
-                    <p>サイト全体の意見・コメントは、URLを下に張っておきます。そちらからお願いします。</p>
-                    <p>万が一出てはいけない情報などを伝える場合は、下に張ってあるURLからお願いします。こちらはメールアドレス/Googleアカウント必須となっています。</p>
-                    <p>返信/荒らし対策のため、メールアドレスを収集させていただきます。</p>
-                    <p>基本的に返信後は、収集したメールアドレスは保存しません。</p>
-                    <p>ただし、荒らしやまた今後返信が必要と判断した場合は、保存させていただく可能性があります。</p>
-                    <p>ご了承ください。</p>
-                    <p>最後までお読みいただきありがとうございました！</p>
-                    <p>ぜひこの記事のコメント、よろしくお願いいたします！</p>
-                    <p>それではまた!</p>
-                </div><div class="post-footer"> <div class="post-navigation">
-                        <a href="../../" class="button">Web関連情報Topに戻る</a>
-                        <a href="../../../" class="button">サイトTopに戻る</a>
-                    </div>
-                    <p>
-                        <a href="https://forms.gle/YekxJ26Vot2qngdH8" class="button" target="_blank" rel="noopener noreferrer">この記事のコメント(公開されます)</a><br>
-                        <a href="https://forms.gle/dUfi37iYsESb79qv9" class="button" target="_blank" rel="noopener noreferrer">サイト全体のコメント(公開されます)</a><br>
-                        <a href="https://forms.gle/PzG3mpyW52FhqHhw7" class="button" target="_blank" rel="noopener noreferrer">秘密裏に送る必要がある場合はこちら(メールアドレスを収集させていただきます。)</a>
-                    </p>
-                    <p>これらのフォームは「Google フォーム」を利用しています。</p>
-                </div></div></main>
+                        <p>普通にリポジトリを作ればOKです</p>
+                        <p>名前に関しては、使うURLによって変わります。</p>
+                        <p>「ユーザー名.github.io」というリポジトリ名にすれば、URLは「ユーザー名.github.io」となります。</p>
+                        <p>それ以外にした場合は、「ユーザー名.github.io/リポジトリ名」となります。</p>
 
-        <footer>
-            <div class="container">
+                        <h3>2.GithubPagesの有効化</h3>
+                        <p>これも意外と簡単です。ぽちぽちするだけです。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/U5sO2LlB.webp" alt="リポジトリ作成後の最初の画面。" loading="lazy">
+                        <p>リポジトリが作れたらこんな感じになると思います。</p>
+                        <p>次に[Settings]を押します。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/8NdrX8zD.webp" alt="赤丸でSettingsを囲んでいる画像" loading="lazy">
+                        <p>そしたら赤丸で囲んでいる[Pages]のところを押します。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/4OoigDmt.webp" alt="Pagesタブ?を赤丸で囲んでいる画像。" loading="lazy">
+                        <p>画像で赤丸で囲んである、[Deploy from a branch]というボタンを押します。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/pMf7Xjyx.webp" alt="Deploy from a branchボタンが赤丸で囲んである画像" loading="lazy">
+                        <p>そしたら選択肢が出てくるので、[Github Actions]を押します。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/BWzV51jn.webp" alt="Github Actionsという選択肢が赤丸で囲んである画像" loading="lazy">
+                        <p>そしたらなんかたくさん出てくるので少しスクロールしたところにある、[Static HTML]内の、[Configure]を押します。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/NdZxeBzL.webp" alt="Static HTMLの枠が青で囲まれていて、Configureボタンが赤丸で囲んである画像" loading="lazy">
+                        <p>そしたらページが移動するので、特に何も変えずに、[Commit changes...]という緑のボタン(画像では赤丸で囲んであるボタン)を押します。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/5artfIa1.webp" alt="Commit changes...ボタンが赤丸で囲んである画像">
+                        <p>そしたらミニダイアログ見ないなのが出てくるので、そのまま[Commit changes]ボタンを押します。(画像では赤丸で囲んであるボタン)</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/R3UaWM9v.webp" alt="Commit chengesという緑のボタンが赤丸で囲んである画像">
+                        <p>これでリポジトリの準備は完了です!</p>
+
+                        <h3>3.HTMLを実際に突っ込んでみる</h3>
+                        <p>これはGitでアップしても、Githubのサイト上からアップしても構いません。</p>
+                        <p>Gitの使い方については今回は割愛させていただきます。</p>
+                        <p>その代わり、ファイルを直接アップロードする方法を今回は載せます。</p>
+                        <p>慣れてきたらGitでアップすることをおすすめします。</p>
+                        <p>まずリポジトリのTop(Codeタブ)に戻ります。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/bjhn5zzf.webp" alt="リポジトリのTop(Codeタブ)の画像" loading="lazy">
+                        <p>次に[Add file]を押したのちに、[Upload files]を押します。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/jpcKczfq.webp" alt="Upload filesボタンが赤丸で囲んである画像" loading="lazy">
+                        <p>そしたらページが移動するので、真ん中の[Drag files here to add them to your repository]というところに、HTMLファイルをドラックアンドドロップするか、[choose your files]ボタンを押して、ファイルをアップロードします。</p>
+                        <p>名前は、index.htmlにしてください。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/fRq7hWYb.webp" alt="ドラップアンドドロップする枠がある画像。" loading="lazy">
+                        <p>アップロードできると、下に[Commit changes]という枠が出現します。そこにコミットメッセージと説明を入れます。</p>
+                        <p>入れなくてもアップロードはできますが、見返した際に、わかりやすいように軽く書いておくことをお勧めします。</p>
+                        <p>書くのがめんどくさい人や、見返す?ﾅﾆｿﾚｵｲｼｲﾉって人は書かなくても大丈夫です。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/Jt6PbzfW.webp" alt="Commit changesという枠が出てきた時の画像。" loading="lazy">
+                        <p>書けた/書かない人は、[Commit changes]ボタンを押します。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/wLlLkCVQ.webp" alt="ファイルアップロードページのCommit changesボタンが赤丸で囲んである画像" loading="lazy">
+                        <p>そしたらアップロードが始まります。10秒くらいで終わります。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/PC0PhoTu.webp" alt="アップロード中の画面の画像。" loading="lazy">
+                        <p>アップロードが終わったらリポジトリTopに戻されます。</p>
+
+                        <h3>4.反映されているかの確認</h3>
+                        <p>右下のほうの、github-pagesボタンを押します。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/aNP4bZP1.webp" alt="github-pagesボタンが赤丸で囲んである画像" loading="lazy">
+                        <p>そしたらページが移動します。そしたら青文字のURLがあると思います。リポジトリ名を「ユーザー名.github.io」という名前にした場合のURLは、「ユーザー名.github.io」となっているはずです。</p>
+                        <p>リポジリ名を、ほかの名前にした人は、「ユーザー名.github.io/リポジリ名」となっているはずです。</p>
+                        <p>そしたらそのリンクを開きます。</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/WMmukUJR.webp" alt="リンク部分が青文字になっている画像。" loading="lazy">
+                        <p>そしたら先ほどの手順でアップしたindex.htmlの内容が表示されるはずです!</p>
+                        <img class="responsive-image" src="https://ul.h3z.jp/6YZvfejn.webp" alt="先ほどの手順でアップロードしたindex.htmlの画像。" loading="lazy">
+                        <p class="success-message">正しく表示できていれば、成功です!</p>
+                        <p class="note-message">※404などになった/変更が適応されていない場合、まだGithubActionsが実行中の可能性があります。10秒くらい待ってから再読み込みしてみてください。</p>
+                        <h3 class="completion-message">これにて全手順は終了となります! お疲れ様でした。</h3>
+
+                        <h2>最後に</h2>
+                        <p>今回はGithubPagesを使い始める手順を解説しました。</p>
+                        <p>GithubPagesは、とても便利なサービスだと思います</p>
+                        <p>特に、とりあえずテストでサイトを開きたい場合や、手軽に開きたい場合などにとてもおすすめです。</p>
+                        <p>逆に、GithubPagesで物足りなくなってきたり、不便が起きるようになってきたら、別のホスティングサービスや、独自サーバー(レンタルサーバー・VPS)を用意するのも手です。</p>
+                        <p>何かこのページへの意見・コメントがある場合は、GoogleFormsからお願いします。</p>
+                        <p>サイト全体の意見・コメントは、URLを下に張っておきます。そちらからお願いします。</p>
+                        <p>万が一出てはいけない情報などを伝える場合は、下に張ってあるURLからお願いします。こちらはメールアドレス/Googleアカウント必須となっています。</p>
+                        <p>返信/荒らし対策のため、メールアドレスを収集させていただきます。</p>
+                        <p>基本的に返信後は、収集したメールアドレスは保存しません。</p>
+                        <p>ただし、荒らしやまた今後返信が必要と判断した場合は、保存させていただく可能性があります。</p>
+                        <p>ご了承ください。</p>
+                        <p>最後までお読みいただきありがとうございました！</p>
+                        <p>ぜひこの記事のコメント、よろしくお願いいたします！</p>
+                        <p>それではまた!</p>
+
+                        <div class="post-footer">
+                            <ul class="post-navigation">
+                                <li><a href="https://forms.gle/YekxJ26Vot2qngdH8" target="_blank" rel="noopener noreferrer" class="button">この記事のコメント（公開されます）</a></li>
+                                <li><a href="https://forms.gle/dUfi37iYsESb79qv9" target="_blank" rel="noopener noreferrer" class="button">サイト全体のコメント（公開されます）</a></li>
+                                <li><a href="https://forms.gle/PzG3mpyW52FhqHhw7" target="_blank" rel="noopener noreferrer" class="button">秘密裏に送る必要がある場合はこちら（メールアドレス収集）</a></li>
+                            </ul>
+                            <p class="form-note">このフォームは「Google フォーム」を利用しています。</p>
+                            <ul class="post-navigation">
+                                <li><a href="/Web関連/" class="button">Web関連情報Topに戻る</a></li>
+                                <li><a href="/" class="button">サイトTopに戻る</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </main>
+
+            <footer>
                 <p>&copy; 2025 1510tyのサイト All Rights Reserved.</p>
                 <ul>
                     <li><a href="../../../privacypolicy/">プライバシーポリシー</a></li>
-                    <li><a href="/contact.html">お問い合わせ</a></li>
+                    <li><a href="../../../お問い合わせ/">お問い合わせ</a></li>
                 </ul>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </body>
 </html>
