@@ -530,7 +530,7 @@ footer ul li a:hover {
 .button {
     display: inline-block;
     padding: 12px 25px;
-    background-color: var(--primary-color); /* メインカラーを使用 */
+    background-color: #fff; /* メインカラーを使用 */
     color: #fff; /* 文字色を白に */
     border-radius: 5px;
     text-decoration: none; /* 下線を非表示 */
@@ -542,7 +542,7 @@ footer ul li a:hover {
 }
 
 .button:hover {
-    background-color: darken(var(--primary-color), 10%); /* メインカラーを少し濃く */
+    background-color: greenyellow; /* メインカラーを少し濃く */
     transform: translateY(-2px);
     text-decoration: none;
 }
