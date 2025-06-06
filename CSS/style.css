@@ -76,6 +76,7 @@ body > .category-dropdown-nav { /* bodyの直接の子要素のcategory-dropdown
 
 header {
     width: 100%;
+    text-align: center;
 }
 
 /* mainは上記でflex-grow: 1を設定済み */
