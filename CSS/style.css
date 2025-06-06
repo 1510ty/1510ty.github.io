@@ -674,3 +674,134 @@ header .container {
     color: #888;
     margin-top: 20px;
 }
+
+/* ==================== */
+/* 13. プライバシーポリシーページ固有のスタイル */
+/* ==================== */
+
+.privacy-policy-main {
+    padding: 40px 20px; /* 上下左右にゆとり */
+    flex-grow: 1; /* Sticky Footerのために中央コンテンツが伸びるように */
+}
+
+.privacy-policy-content {
+    max-width: 800px; /* コンテンツの最大幅を制限して読みやすく */
+    margin: 0 auto; /* 中央寄せ */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.privacy-policy-content .main-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.privacy-policy-content .section-title {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--primary-color); /* 左にアクセントライン */
+    padding-left: 10px;
+}
+
+.privacy-policy-content p {
+    margin-bottom: 1em;
+    line-height: 1.7;
+    color: #444;
+}
+
+.privacy-policy-content ul {
+    list-style: disc; /* 通常の黒丸リスト */
+    margin-left: 25px; /* インデント */
+    margin-bottom: 1em;
+}
+
+.privacy-policy-content ul li {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+    color: #444;
+}
+
+.privacy-policy-content ul li ul { /* 2階層目のリスト */
+    list-style: circle; /* 白丸リスト */
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.privacy-policy-content .info-item {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--light-bg); /* 薄い背景色で項目を区切る */
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+}
+
+.privacy-policy-content .info-item h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+/* お問い合わせリンクのスタイル */
+.privacy-policy-content .contact-links {
+    list-style: none; /* リストの点を削除 */
+    padding: 0;
+    margin-top: 25px;
+    display: flex; /* ボタンを横並びにする */
+    flex-wrap: wrap; /* 折り返しを許可 */
+    gap: 15px; /* ボタン間のスペース */
+    justify-content: center; /* 中央寄せ */
+}
+
+.privacy-policy-content .contact-links li {
+    margin-bottom: 0; /* リストアイテムの下マージンをリセット */
+}
+
+.privacy-policy-content .button {
+    /* 既存のボタンクラスを使用 */
+    padding: 12px 25px; /* パディングを調整 */
+    font-size: 1em;
+    text-align: center;
+}
+
+.privacy-policy-content .policy-date,
+.privacy-policy-content .policy-operator {
+    text-align: right;
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 20px;
+}
+.privacy-policy-content .policy-operator {
+    margin-bottom: 0; /* フッターとの間隔調整 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 767px) {
+    .privacy-policy-content {
+        padding: 20px;
+    }
+    .privacy-policy-content .main-title {
+        font-size: 2em;
+    }
+    .privacy-policy-content .section-title {
+        font-size: 1.5em;
+    }
+    .privacy-policy-content .info-item h3 {
+        font-size: 1.1em;
+    }
+    .privacy-policy-content .contact-links {
+        flex-direction: column; /* モバイルで縦並び */
+        align-items: stretch; /* 幅いっぱいに広げる */
+    }
+}
