@@ -805,3 +805,131 @@ header .container {
         align-items: stretch; /* 幅いっぱいに広げる */
     }
 }
+
+/* ==================== */
+/* 14. お問い合わせページ固有のスタイル */
+/* ==================== */
+
+.contact-main {
+    padding: 40px 20px; /* 上下左右にゆとり */
+    flex-grow: 1; /* Sticky Footerのために中央コンテンツが伸びるように */
+}
+
+.contact-section {
+    max-width: 700px; /* コンテンツの最大幅を制限して読みやすく */
+    margin: 0 auto; /* 中央寄せ */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: center; /* 全体を中央寄せ */
+}
+
+.contact-section .section-title {
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-align: center; /* 見出しを中央寄せ */
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.contact-section p {
+    margin-bottom: 1em;
+    line-height: 1.7;
+    color: #444;
+}
+
+.contact-section .contact-links-list {
+    list-style: none; /* リストの点を削除 */
+    padding: 0;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.contact-section .contact-links-list li {
+    margin-bottom: 30px; /* 各ボタンと説明のセットの下に余白 */
+}
+
+.contact-section .contact-links-list .button {
+    display: inline-block; /* ボタンとして機能するように */
+    width: auto; /* ボタンの幅をコンテンツに合わせる */
+    min-width: 280px; /* ボタンの最小幅を設定（任意） */
+    padding: 15px 30px; /* ボタンのパディングを大きくして押しやすく */
+    font-size: 1.1em; /* フォントサイズを少し大きく */
+    font-weight: 600;
+    margin-bottom: 10px; /* ボタンと説明の間の余白 */
+}
+
+.contact-section .contact-links-list .description {
+    font-size: 0.95em;
+    color: #666;
+    max-width: 500px; /* 説明文の幅を制限して読みやすく */
+    margin: 0 auto; /* 中央寄せ */
+    text-align: left; /* 説明文は左寄せ */
+}
+
+.contact-section .note {
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 30px;
+}
+
+/* フッター内の .container は削除されているため、不要な場合は footer .container のスタイルは削除 */
+/* 既存の style.css に footer のスタイルがあるため、そこを調整 */
+footer {
+    background-color: var(--text-color);
+    color: #fff;
+    text-align: center;
+    padding: 20px; /* 上下左右に20px */
+    font-size: 0.9em;
+    margin-top: auto; /* これもsticky footerに貢献 */
+}
+
+footer p {
+    margin: 0 0 10px 0; /* 下に余白を設ける */
+    padding: 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* 横並びにする */
+    justify-content: center; /* 中央寄せ */
+    flex-wrap: wrap; /* 折り返しを許可 */
+}
+
+footer ul li {
+    display: inline-block; /* 横並びにする */
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* レスポンシブ対応 */
+@media (max-width: 767px) {
+    .contact-section {
+        padding: 20px;
+    }
+    .contact-section .section-title {
+        font-size: 1.6em;
+    }
+    .contact-section .contact-links-list .button {
+        min-width: unset; /* モバイルでは最小幅を解除 */
+        width: 100%; /* 幅いっぱいに広げる */
+        padding: 12px 20px;
+    }
+    .contact-section .contact-links-list .description {
+        text-align: center; /* モバイルでは説明文も中央寄せ */
+    }
+}
