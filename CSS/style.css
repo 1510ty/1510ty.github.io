@@ -599,3 +599,77 @@ header .container {
 }
     
 }
+
+/* ==================== */
+/* 12. 404ページ固有のスタイル */
+/* ==================== */
+.not-found-main {
+    text-align: center; /* 404ページのコンテンツを中央寄せ */
+    padding: 60px 20px; /* 上下にゆとりを持たせる */
+    flex-grow: 1; /* mainがFlexコンテナ内で伸びるように */
+    display: flex; /* 子要素を中央に配置するためにFlexboxを使用 */
+    flex-direction: column; /* 縦方向に並べる */
+    justify-content: center; /* 垂直方向の中央揃え */
+    align-items: center; /* 水平方向の中央揃え */
+}
+
+.not-found-content {
+    max-width: 600px; /* コンテンツの最大幅を制限 */
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.not-found-content h2 {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-align: center; /* 中央寄せを再指定 */
+}
+
+.not-found-content .message {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.not-found-content .suggestion {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.not-found-content ul {
+    list-style: none; /* リストの点を削除 */
+    padding: 0;
+    margin: 20px 0;
+}
+
+.not-found-content ul li {
+    margin-bottom: 10px;
+}
+
+.not-found-content ul li a {
+    font-size: 1.1em;
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.not-found-content ul li a:hover {
+    color: #0056b3; /* ホバー時の色 */
+    text-decoration: none;
+}
+
+.not-found-content .apology {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 30px;
+}
+
+.not-found-content .contact-info {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 20px;
+}

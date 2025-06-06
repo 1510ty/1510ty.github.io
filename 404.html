@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>404 NotFound - 1510tyのサイト</title>
-        <meta name="description" content="404 NotFound">
+        <title>404 Not Found - 1510tyのサイト</title>
+        <meta name="description" content="お探しのページは見つかりませんでした。">
         <link rel="icon" href="/favicon.ico">
         <link rel="stylesheet" href="/CSS/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +12,38 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1><a href=".">1510tyのサイト</a></h1>
-        <br>
-        <h1>404 NotFound</h1>
-        <p>ページが見つかりません。</p>
-        <p>削除されたか移転した可能性があります。</p>
-        <p>ご不便おかけし申し訳ございません。</p>
-        <p><a href="/">リンク</a>からTopページへ移動することが可能です。</p>
+        <div class="container">
+            <header>
+                <h1><a href="/">1510tyのサイト</a></h1>
+                <p>1510tyのサイト。役立つ情報を出せるように頑張ります!</p>
+            </header>
+
+            <main class="not-found-main">
+                <section class="not-found-content">
+                    <h2>404 Not Found</h2>
+                    <p class="message">お探しのページは見つかりませんでした。</p>
+                    <p class="message">
+                        申し訳ございませんが、指定されたURLのページは削除されたか、
+                        移動した可能性があります。
+                    </p>
+                    <p class="suggestion">以下のいずれかの方法をお試しください。</p>
+                    <ul>
+                        <li><a href="/">トップページに戻る</a></li>
+                        <li><a href="/Blog">1510tyのBlogのトップページへ</a></li>
+                        <li><a href="/Web関連">Web関連情報のトップページへ</a></li>
+                        <li>URLが間違っていないか、もう一度ご確認ください。</li>
+                        </ul>
+                    <p class="apology">ご不便をおかけし、大変申し訳ございません。</p>
+                    </section>
+            </main>
+
+            <footer>
+                <p>&copy; 2025 1510tyのサイト All Rights Reserved.</p>
+                <ul>
+                    <li><a href="/privacy-policy.html">プライバシーポリシー</a></li>
+                    <li><a href="/contact.html">お問い合わせ</a></li>
+                </ul>
+            </footer>
+        </div>
     </body>
 </html>
