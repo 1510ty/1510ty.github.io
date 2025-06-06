@@ -477,7 +477,7 @@ header .container {
 .button {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #ffffff64; /* ここを灰色に変更しました */
+    background-color: #ffffff; /* ここを灰色に変更しました */
     color: #fff; /* 文字色を白に強制 */
     border-radius: 5px;
     text-decoration: none; /* ここで下線を強制的に非表示 */
