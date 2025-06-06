@@ -530,7 +530,7 @@ footer ul li a:hover {
 .button {
     display: inline-block;
     padding: 12px 25px;
-    background-color: deepskyblue; /* メインカラーを使用 */
+    background-color: var(--primary-color); /* メインカラーを使用 */
     color: #fff; /* 文字色を白に */
     border-radius: 5px;
     text-decoration: none; /* 下線を非表示 */
@@ -539,6 +539,35 @@ footer ul li a:hover {
     white-space: nowrap;
     border: none; /* ボタンにボーダーがない場合 */
     cursor: pointer; /* マウスオーバー時にカーソルをポインターにする */
+}
+
+/* ここが重要：aタグに.buttonクラスが適用されている場合の文字色を強制的に白にする */
+/* .button.button は冗長ですが、詳細度を上げるために一時的に有効 */
+/* もしくは、.button:link, .button:visited でも可 */
+.button,
+a.button:link,
+a.button:visited {
+    color: #fff; /* 文字色を白に強制 */
+    text-decoration: none; /* ホバー時以外も下線を確実に消す */
+}
+
+.button:hover {
+    background-color: #00bfff; /* deepskyblueより少し濃い色 */
+    transform: translateY(-2px);
+    text-decoration: none; /* ホバー時も下線を非表示 */
+    color: #fff; /* ホバー時も文字色を白に強制 */
+}
+
+/* リンク全般のスタイルは変更しない */
+a:link, a:visited {
+    color: var(--primary-color); /* メインカラーをリンク色に */
+    text-decoration: none; /* 下線を非表示 */
+}
+a:hover {
+    text-decoration: underline; /* ホバーで下線を表示 */
+}
+a:active {
+    color: var(--primary-color);
 }
 
 .button:hover {
