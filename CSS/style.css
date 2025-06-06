@@ -204,28 +204,28 @@ footer {
     background-color: var(--text-color);
     color: #fff;
     text-align: center;
-    padding: 20px; /* 上下左右に20px */
+    padding: 0; /* ★ここを修正：フッター自体のパディングを全て0にする */
     font-size: 0.9em;
-    margin-top: auto; /* mainが残りのスペースを埋めた後、フッターを一番下に配置 */
+    margin-top: auto; /* これもsticky footerに貢献 */
 }
 
 footer p {
-    margin: 0 0 10px 0; /* 下に余白を設ける */
-    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
 }
 
 footer ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* 横並びにする */
-    justify-content: center; /* 中央寄せ */
-    flex-wrap: wrap; /* 折り返しを許可 */
+    display: flex; /* 追加されていた場合は維持 */
+    justify-content: center; /* 追加されていた場合は維持 */
+    flex-wrap: wrap; /* 追加されていた場合は維持 */
 }
 
 footer ul li {
-    display: inline-block; /* 横並びにする */
-    margin: 0 10px;
+    display: inline-block;
+    margin: 0 10px; /* ここは維持 */
 }
 
 footer ul li a {
@@ -237,6 +237,45 @@ footer ul li a:hover {
     text-decoration: underline;
 }
 
+/* ==================== */
+/* 7. フッター */
+/* ==================== */
+footer {
+    background-color: var(--text-color);
+    color: #fff;
+    text-align: center;
+    padding: 0; /* ★ここを修正：フッター自体のパディングを全て0にする */
+    font-size: 0.9em;
+    margin-top: auto; /* これもsticky footerに貢献 */
+}
+
+footer p {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* 追加されていた場合は維持 */
+    justify-content: center; /* 追加されていた場合は維持 */
+    flex-wrap: wrap; /* 追加されていた場合は維持 */
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 10px; /* ここは維持 */
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
 
 /* ==================== */
 /* 8. Blog一覧ページ固有のスタイル */
