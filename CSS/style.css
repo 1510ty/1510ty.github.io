@@ -1017,3 +1017,82 @@ a:active {
         text-align: center; /* モバイルでは説明文も中央寄せ */
     }
 }
+
+/* ==================== */
+/* 15. サイトマップページ固有のスタイル */
+/* ==================== */
+
+.sitemap-section {
+    padding: 40px 20px; /* 上下左右にゆとり */
+    flex-grow: 1; /* Sticky Footerのために中央コンテンツが伸びるように */
+}
+
+.sitemap-section .main-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.sitemap-list {
+    max-width: 700px; /* コンテンツの最大幅を制限して読みやすく */
+    margin: 0 auto; /* 中央寄せ */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.sitemap-list h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.sitemap-list ul {
+    list-style: none; /* デフォルトのリストスタイルを解除 */
+    padding: 0;
+    margin-left: 0; /* デフォルトのインデントを解除 */
+    margin-bottom: 30px;
+}
+
+.sitemap-list ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.sitemap-list ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+.sitemap-list ul li a:hover {
+    text-decoration: underline;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 767px) {
+    .sitemap-section {
+        padding: 20px;
+    }
+    .sitemap-section .main-title {
+        font-size: 2em;
+    }
+    .sitemap-list {
+        padding: 20px;
+    }
+    .sitemap-list h3 {
+        font-size: 1.3em;
+    }
+    .sitemap-list ul li {
+        font-size: 1em;
+    }
+}
