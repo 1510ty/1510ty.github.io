@@ -575,7 +575,7 @@ footer ul li a:hover {
     text-decoration: none; /* 下線を非表示 */
     font-weight: 500;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    white-space: nowrap;
+    white-space: normal;
     border: none; /* ボタンにボーダーがない場合 */
     cursor: pointer; /* マウスオーバー時にカーソルをポインターにする */
 }
@@ -645,7 +645,7 @@ a:active {
     color: var(--primary-color); /* リンク色をメインカラーに */
     font-weight: 500;
     transition: background-color 0.3s ease, color 0.3s ease;
-    white-space: nowrap; /* テキストの改行を防ぐ */
+    white-space: normal; /* テキストの改行を防ぐ ... はもう古い。改行するように変更。*/ 
 }
 
 .category-dropdown-nav a:hover {
