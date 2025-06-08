@@ -427,10 +427,23 @@ footer ul li a:hover {
 }
 
 .month-group h4 {
-    font-size: 1.8em;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    text-align: center;
+    /* month-groupがFlexコンテナになったため、h4がFlexアイテム化します */
+    /* 必ず1行を占めて、カードの上に表示されるように幅を100%に設定します */
+    width: 100%;
+    font-size: 1.8em; /* 既存のサイズを維持 */
+    margin-top: 30px; /* 既存のマージンを維持 */
+    margin-bottom: 15px; /* カードリストとの間隔を確保 */
+    text-align: center; /* 既存のテキスト位置を維持 */
+}
+
+.month-group {
+    /* これが記事カードを横並びにするFlexコンテナになります */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* カード間の隙間 */
+    justify-content: center; /* カードを中央寄せ */
+    margin-bottom: 40px; /* 各月グループの下に余白を追加 (任意) */
+    /* 必要であれば、borderやpaddingなども調整してください */
 }
 
 /* ==================== */
