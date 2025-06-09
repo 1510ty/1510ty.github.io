@@ -1109,3 +1109,52 @@ a:active {
         font-size: 1em;
     }
 }
+
+/* ==================== */
+/* 16. 自己紹介セクション */
+/* ==================== */
+.about-me-section {
+    padding: 40px 0 20px; /* 上下にパディング、フッターとの間に少しスペースを */
+    background-color: var(--background-color-light); /* 少し薄い背景色で区別 */
+    text-align: center; /* テキストを中央寄せに */
+}
+
+.about-me-section h2 {
+    font-size: 1.8em; /* 見出しのサイズ */
+    font-weight: 700;
+    color: var(--text-color); /* 通常のテキストカラー */
+    margin-bottom: 20px;
+}
+
+.about-me-section .about-me-content {
+    max-width: 700px; /* 幅を制限して読みやすく */
+    margin: 0 auto; /* 中央寄せ */
+    font-size: 0.95em; /* 少し小さめのフォントサイズ */
+    color: var(--text-color-light); /* 少し薄いテキストカラー */
+    line-height: 1.6;
+}
+
+.about-me-section .about-me-content p {
+    margin-bottom: 10px; /* 段落間の余白 */
+}
+
+.about-me-section .about-me-content p:last-child {
+    margin-bottom: 0; /* 最後の段落は余白なし */
+}
+
+.about-me-section .about-me-content a {
+    color: var(--primary-color); /* リンクの色 */
+    text-decoration: underline; /* 下線 */
+}
+
+.about-me-section .about-me-content a:hover {
+    text-decoration: none; /* ホバーで下線なし */
+}
+
+/* 区切り線のスタイル（既存の.separatorクラスがあるなら不要かも、なければ追加） */
+.separator {
+    border: none;
+    border-top: 1px solid var(--border-color); /* 細い線で区切り */
+    margin: 30px auto; /* 上下の余白と中央寄せ */
+    width: 60%; /* 幅を調整 */
+}
